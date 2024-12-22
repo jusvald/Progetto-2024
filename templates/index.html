@@ -11,30 +11,62 @@
 </head>
 
 <body class="bg-light">
-    <div class="container py-5">
-        <div class="text-center mb-4">
+    <div class="container-fluid py-3">
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center">
             <!-- Logo -->
-            <img src="/workspace/Progetto-2024/immagini/I-Griffin.jpg" class="img-fluid mb-3" style="max-width: 150px;">
-            <h1 class="text-primary">Benvenuto</h1>
+            <div class="text-center w-100 position-absolute">
+                <img src="static/immagini/stake.png" class="img-fluid" style="max-width: 150px;">
+            </div>
+
+            <!-- Pulsanti in alto a destra -->
+            <div class="ms-auto">
+                <form action="/accedi" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-primary btn-lg me-2">Accedi</button>
+                </form>
+                <form action="/registrati" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-outline-secondary btn-lg">Registrati</button>
+                </form>
+            </div>
         </div>
 
-        <div class="d-flex flex-column align-items-center gap-3">
-            <!-- Pulsante Accedi -->
-            <form action="/accedi" method="post">
-                <button type="submit" class="btn btn-primary btn-lg">Accedi</button>
-            </form>
-
-            <!-- Pulsante Registrati -->
-            <form action="/registrati" method="post">
-                <button type="submit" class="btn btn-outline-secondary btn-lg">Registrati</button>
-            </form>
-
-            <!-- slot -->
-            <form action="/immagine_bottone" method="post">
-                <button type="submit" class="btn p-0 border-0">
-                    <img src="https://via.placeholder.com/200x100" alt="Immagine Bottone" class="img-fluid">
-                </button>
-            </form>
+        <!-- Griglia di immagini bottone -->
+        <div class="container mt-5">
+            <div class="row g-3">
+                <!-- Bottone 1 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <form action="/black_jack_1" method="post">
+                        <button type="submit" class="btn p-0 border-0 w-100">
+                            <img src="/static/immagini/black jack.png" alt="Immagine Bottone 1" class="img-fluid">
+                        </button>
+                    </form>
+                </div>
+                <!-- Bottone 2 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <form action="/Book_of_RA" method="post">
+                        <button type="submit" class="btn p-0 border-0 w-100">
+                            <img src="static/immagini/book_of_ra.png" alt="Immagine Bottone 2" class="img-fluid">
+                        </button>
+                    </form>
+                </div>
+                <!-- Bottone 3 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <form action="/Roulette_1" method="post">
+                        <button type="submit" class="btn p-0 border-0 w-100">
+                            <img src="static/immagini/roulette_1.png" alt="Immagine Bottone 3" class="img-fluid">
+                        </button>
+                    </form>
+                </div>
+                <!-- Bottone 4 -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <form action="/Crazy_time" method="post">
+                        <button type="submit" class="btn p-0 border-0 w-100">
+                            <img src="static/immagini/crazytimelogotransparent.png" alt="Immagine Bottone 4" class="img-fluid">
+                        </button>
+                    </form>
+                </div>
+                <!-- Aggiungi altri bottoni se necessario -->
+            </div>
         </div>
     </div>
 
