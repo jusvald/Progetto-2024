@@ -4,75 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accesso e Registrazione</title>
-
-    <!-- Bootstrap CSS -->
+    <title>Home - Casino</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
-    <div class="container-fluid py-3">
-        <!-- Header -->
-        <div class="d-flex justify-content-between align-items-center">
-            <!-- Logo -->
-            <div class="text-center w-100 position-absolute">
-                <img src="static/immagini/stake.png" class="img-fluid" style="max-width: 150px;">
+    <div class="container py-5">
+        <!-- Messaggio di Benvenuto -->
+        <h1 class="text-center mb-4">Benvenuto al Casino, {{ username }}!</h1>
+
+        <!-- Griglia per i bottoni immagine -->
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
+            <!-- Pulsante immagine per giocare alla slot -->
+            <div class="col text-center">
+                <form action="/book_of_ra" method="get">
+                    <button type="submit" class="btn p-0 border-0">
+                        <img src="static/immagini/book_of_ra.png" alt="Immagine Bottone 2" class="img-fluid" style="max-width: 200px;">
+                    </button>
+                </form>
             </div>
 
-      
-            <div class="ms-auto">
-            
-                <form action="/accedi" method="post" class="d-inline">
-                    <button type="submit" class="btn btn-primary btn-lg me-2">Accedi</button>
+            <!-- Pulsante Roulette -->
+            <div class="col text-center">
+                <form action="/Roulette_1" method="post">
+                    <button type="submit" class="btn p-0 border-0">
+                        <img src="static/immagini/roulette_1.png" alt="Immagine Bottone 3" class="img-fluid" style="max-width: 200px;">
+                    </button>
                 </form>
+            </div>
 
-      
-                <form action="/registrati" method="post" class="d-inline">
-                    <button type="submit" class="btn btn-outline-secondary btn-lg">Registrati</button>
+            <!-- Pulsante Crazy Time -->
+            <div class="col text-center">
+                <form action="/Crazy_time" method="post">
+                    <button type="submit" class="btn p-0 border-0">
+                        <img src="static/immagini/crazytimelogotransparent.png" alt="Immagine Bottone 4" class="img-fluid" style="max-width: 200px;">
+                    </button>
+                </form>
+            </div>
+
+            <!-- Pulsante Black Jack -->
+            <div class="col text-center">
+                <form action="/black_jack_1" method="post">
+                    <button type="submit" class="btn p-0 border-0">
+                        <img src="static/immagini/black jack.png" alt="Immagine Bottone 1" class="img-fluid" style="max-width: 200px;">
+                    </button>
                 </form>
             </div>
         </div>
 
-        <div class="container mt-5">
-            <div class="row g-3">
-                <!-- Bottone BJ-->
-                <div class="col-6 col-md-4 col-lg-3">
-                    <form action="/black_jack_1" method="post">
-                        <button type="submit" class="btn p-0 border-0 w-100">
-                            <img src="/static/immagini/black jack.png" alt="Immagine Bottone 1" class="img-fluid">
-                        </button>
-                    </form>
-                </div>
-                <!-- Bottone book of ra -->
-                <div class="col-6 col-md-4 col-lg-3">
-                    <form action="/Book_of_RA" method="post">
-                        <button type="submit" class="btn p-0 border-0 w-100">
-                            <img src="static/immagini/book_of_ra.png" alt="Immagine Bottone 2" class="img-fluid">
-                        </button>
-                    </form>
-                </div>
-                <!-- Bottone roulette -->
-                <div class="col-6 col-md-4 col-lg-3">
-                    <form action="/Roulette_1" method="post">
-                        <button type="submit" class="btn p-0 border-0 w-100">
-                            <img src="static/immagini/roulette_1.png" alt="Immagine Bottone 3" class="img-fluid">
-                        </button>
-                    </form>
-                </div>
-                <!-- Bottone tempo pazzo o crazy time -->
-                <div class="col-6 col-md-4 col-lg-3">
-                    <form action="/Crazy_time" method="post">
-                        <button type="submit" class="btn p-0 border-0 w-100">
-                            <img src="static/immagini/crazytimelogotransparent.png" alt="Immagine Bottone 4" class="img-fluid">
-                        </button>
-                    </form>
-                </div>
-                <!--possiamo aggiungere altri bottoni  -->
-            </div>
+        <!-- Pulsante di logout -->
+        <div class="text-center mt-5">
+            <a href="/logout" class="btn btn-danger">Logout</a>
         </div>
     </div>
 
-    <!-- Bootstrap per forza -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
