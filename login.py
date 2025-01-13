@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
+import bcrypt
 
 app = Flask(__name__)
 
@@ -43,14 +44,14 @@ def accedi():
         username = request.form['username']
         password = request.form['password']
 
-        user = User.query.filter_by(username=username, password=password).first()
+        user = User.query.filter_by(username=username).first()
 
-        if user:
+        # Verifica la password
+        if user and bcrypt.checkpw(password.encode('utf-8'), user.password.encode('utf-8')):
             session['username'] = username  # Salva il nome utente nella sessione
             return redirect(url_for('home'))  # Reindirizza alla home dopo il login
         else:
             return "Credenziali errate. Riprova.", 400
-
     return render_template('accedi.html')  # Renderizza la pagina di login
 
 # Rotta per registrarsi
@@ -64,8 +65,11 @@ def registrati():
         if User.query.filter_by(username=username).first():
             return "Utente già registrato.", 400
 
+        # Cripta la password
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+
         # Crea il nuovo utente
-        new_user = User(username=username, password=password)
+        new_user = User(username=username, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
 
@@ -86,7 +90,7 @@ def spin():
     import random
 
     # Simboli e logica della slot
-    symbols = ["franchino.book_of_ra", "golden_book_of_ra_pharaoh", "book_of_book"]  # Simboli disponibili
+    symbols = ["franchino.book_of_ra", "golden_book_of_ra_pharaoh", "book_of_ra_deluxe_book"]  # Simboli disponibili
     result = random.choices(symbols, k=3)  # Estrae 3 simboli casuali
     is_winner = result[0] == result[1] == result[2]  # Condizione di vincita
     return jsonify({
